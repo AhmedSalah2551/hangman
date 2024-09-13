@@ -1,0 +1,312 @@
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Cairo', sans-serif;
+    outline:none ;;
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+@media (min-width:1199px){
+    .container{
+        width: 1200px;
+    }
+}
+:root{
+    --color:#444;
+    --width:4px;
+}
+body{
+    background-color: #ddd;
+}
+.game{
+    text-transform: capitalize;
+    padding: 25px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+.title .kind{
+    color: #0077ff;
+}
+.interact{
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+}
+.keyboard{
+    width: 400px;
+    text-align: center;
+}
+.keyboard span{
+    background-color: #00aeff;
+    font-weight: bold;
+    color: #fff;
+    line-height: 32px;
+    margin-bottom: 12px;
+    padding: 5px 15px;
+    margin-right: 8px;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+.keyboard .active{
+    background-color: #eee;
+    color: #999;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.keyboard span:hover{
+    background-color: #0077ff;
+    transition: 0.3s ease-in-out;
+}
+.draw {
+    position: relative;
+    user-select: none;
+    pointer-events: none;
+}
+.draw .ground{
+    display: none;
+    position: absolute;
+    width: 100px;
+    bottom: 0px;
+    left: 30px;
+    height: var(--width);
+    background-color: #444;
+}
+.draw.wrong-1 .ground{
+    display: block;
+}
+.draw .stack{
+    display: none;
+    position: absolute;
+    width: var(--width);
+    bottom: 0px;
+    left: 75px;
+    height: 250px;
+    background-color: #444;
+}
+.draw.wrong-2 .stack{
+    display: block;
+}
+.draw .holder{
+    display: none;
+    position: absolute;
+    width: 200px;
+    top: 0px;
+    left: 75px;
+    height: var(--width);
+    background-color: #444;
+}
+.draw.wrong-2 .holder{
+    display: block;
+}
+.draw .rope{
+    display: none;
+    position: absolute;
+    width: var(--width);
+    top :0px;
+    left: 275px;
+    height: 50px;
+    background-color: #444;
+}
+.draw.wrong-3 .rope{
+    display: block;
+}
+.draw .hang{
+    display: none;
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    border: var(--width) var(--color) dotted;
+    border-radius: 50%;
+    left: 243px;
+    top: 50px;
+}
+.draw.wrong-4 .hang{
+    display: block;
+}
+.draw .head{
+    display: none;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border: var(--width) var(--color) solid;
+    border-radius: 50%;
+    left: 253px;
+    top: 60px;
+}
+.draw.wrong-5 .head{
+    display: block;
+}
+.draw .body{
+    display: none;
+    position: absolute;
+    width: var(--width);
+    top: 110px;
+    left: 275px;
+    height: 51px;
+    background-color: #444;
+}
+.draw.wrong-6 .body{
+    display: block;
+}
+.draw .hand-right{
+    display: none;
+    position: absolute;
+    width: 70px;
+    top: 110px;
+    left: 273px;
+    height: var(--width);
+    background-color: #444;
+    transform: rotate(-30deg);
+}
+.draw.wrong-7 .hand-left{
+    display: block;
+}
+.draw .hand-left{
+    display: none;
+    position: absolute;
+    width: 70px;
+    top: 110px;
+    left: 210px;
+    height: var(--width);
+    background-color: #444;
+    transform: rotate(30deg);
+}
+.draw.wrong-7 .hand-right{
+    display: block;
+}
+.draw .leg-right{
+    display: none;
+    position: absolute;
+    width: 60px;
+    top: 180px;
+    left: 267px;
+    height: var(--width);
+    background-color: #444;
+    transform: rotate(-130deg);
+}
+.draw.wrong-8 .leg-right{
+    display: block;
+}
+.draw .leg-left{
+    display: none;
+    position: absolute;
+    width: 60px;
+    top: 180px;
+    left: 225px;
+    height: var(--width);
+    background-color: #444;
+    transform: rotate(135deg);
+}
+.draw.wrong-8 .leg-left{
+    display: block;
+}
+.letters{
+    margin: 100px auto;
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+}
+.letters .letter{
+    display: inline-block;
+    background-color: #eee;
+    border-bottom: 3px solid #444;
+    width: 45px;
+    height: 55px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    position: relative;
+}
+.letters .letter span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.letters .space{
+    display: inline-block;
+    width: 45px;
+    height: 55px;
+    position: relative;
+}
+.letters .space::after{
+    content: "";
+    position: absolute;
+    background-color: #444;
+    top: 10px;
+    font-size: 14px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 15px;
+    height: 3px;
+}
+.winner{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0%;
+    top: 0%;
+    background-color: gold;
+    font-size: 100px;
+    font-weight: bolder;
+}
+.loser{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0%;
+    top: 0%;
+    background-color: red;
+    color: #fff;
+    font-size: 100px;
+    font-weight: bolder;
+}
+.winner span, .loser span{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.display{
+    display: block !important;
+}
